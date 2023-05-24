@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import { useState } from 'react';
 
 function App() {
+  const [fruits,setFruits]= useState([])
+  const [inputText,setInputText]= useState("")
+
+  const inputUpdate=(event)=>{
+    setInputText(event.target.value)
+  }
+
+  const updateArr =() => {
+    const newAr=[...fruits,inputText];
+    setFruits(newAr);
+    setInputText("");
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <intput onChange={inputUpdate} type="text" value={inputText}/>
+        <button onClick={updateArr}/>
+       <ul>
+        {
+          fruits.map((item, index) => {
+            return <li key={index}>{item}</li>
+          })
+        }
+       </ul>
+       <h1>hussain khan</h1>
+
     </div>
   );
 }
