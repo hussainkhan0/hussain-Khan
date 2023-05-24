@@ -18,8 +18,9 @@ function App() {
   }
   return (
     <div className="App">
-        <intput onChange={inputUpdate} type="text" value={inputText}/>
-        <button onClick={updateArr}/>
+
+        <input onChange={inputUpdate} type="text" value={inputText} placeholder="Enter item to list"/>
+        <button onClick={updateArr}> click me </button>
        <ul>
         {
           fruits.map((item, index) => {
